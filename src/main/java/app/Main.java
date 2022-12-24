@@ -3,20 +3,15 @@ package app;
 import app.search.chain.ChainExcelFile;
 import app.search.chain.ChainTxtFile;
 import app.search.Search;
-
-import java.io.File;
-import java.util.List;
+import app.ui.Presenter;
+import app.ui.View;
 
 public class Main
 {
-    public static void main(String[] args) throws Exception
+    public static void main(String[] args)
     {
-        String path=args[0];
-        String textToSearch=args[1];
+        String path=System.getProperty("user.dir");
         ChainExcelFile chain=new ChainExcelFile(new ChainTxtFile());
-        Search search=new Search(path,chain);
-        List<File> list=search.startSearch(textToSearch);
-        for(File file: list)
-            System.out.println(file.getPath());
+        new Presenter(new View(),new Search(path,chain)).start();
     }
 }
