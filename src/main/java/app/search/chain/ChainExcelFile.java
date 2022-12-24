@@ -1,4 +1,4 @@
-package app;
+package app.search.chain;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -13,6 +13,10 @@ public class ChainExcelFile extends Chain
     {
         super(next);
         dataFormatter=new DataFormatter();
+    }
+    public ChainExcelFile()
+    {
+        this(null);
     }
     public boolean doAction(File file,String text) throws Exception
     {

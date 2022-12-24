@@ -1,4 +1,4 @@
-package app;
+package app.search.chain;
 
 import java.io.File;
 import java.util.Scanner;
@@ -8,6 +8,10 @@ public class ChainTxtFile extends Chain
     public ChainTxtFile(Chain next)
     {
         super(next);
+    }
+    public ChainTxtFile()
+    {
+        this(null);
     }
     public boolean doAction(File file,String text) throws Exception
     {
